@@ -13,35 +13,34 @@ Hn = zeros(1, 30); # 29 Predictions + 1 Initial Value
 On(1) = 125;
 Hn(1) = 175;
 
-k1 = 0.2
-k2 = 0.3
-k3 = 0.001
-k4 = 0.002
+k1 = 0.2;
+k2 = 0.3;
+k3 = 0.001;
+k4 = 0.002;
 
 for i=1:29
-  On(i+1) = (1+k1)*On(i) - K3*On(i)*Hn(i);
+  On(i+1) = (1+k1)*On(i) - k3*On(i)*Hn(i);
   Hn(i+1) = (1+k2)*Hn(i) - k4*On(i)*Hn(i);
 endfor
-On
-Hn
+On;
+Hn;
 
 n = [0:29];
 
-##figure(1)
-##plot(n, Fn, '*r')
-##title('Fox Population vs Time')
-##xlabel('Foxes')
-##ylabel('Time')
-##
-##figure(2)
-##plot(n, Rn, '*b')
-##title('Rabbit Population vs Time')
-##xlabel('Rabbits')
-##ylabel('Time')
-##
-##figure(3)
-##plot(Fn, Rn, '*k')
-##title('Trajectory')
-##xlabel('Fox Population Over Time')
-##ylabel('Rabit Population Over Time')
+figure(1)
+plot(n, On, '*r')
+title('On Behaviour')
+xlabel('n')
+ylabel('On')
 
+figure(2)
+plot(n, Hn, '*b')
+title('Hn Behaviour')
+xlabel('Hn')
+ylabel('n')
+
+figure(3)
+plot(On, Hn, '*k')
+title('Trajectory')
+xlabel('On')
+ylabel('Hn')
